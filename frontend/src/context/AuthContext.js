@@ -3,20 +3,20 @@ import api from '../api/axios';
 
 const AuthContext = createContext();
 
-/**
- * Provides authentication state and actions (login, signup, logout)
- * to all child components via React Context.
- */
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // On mount, restore user from localStorage
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
-    if (storedUser && token) {
-      setUser(JSON.parse(storedUser));
+    try {
+      const storedUser = localStorage.getItem('user');
+      const token = localStorage.getItem('token');
+      if (storedUser && token && storedUser !== 'undefined') {
+        setUser(JSON.parse(storedUser));
+      }
+    } catch (e) {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
     }
     setLoading(false);
   }, []);
