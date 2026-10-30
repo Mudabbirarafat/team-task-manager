@@ -1,5 +1,7 @@
 # ◈ TaskFlow — Team Task Manager
 
+[![CI](https://github.com/Mudabbirarafat/team-task-manager/actions/workflows/ci.yml/badge.svg)](https://github.com/Mudabbirarafat/team-task-manager/actions/workflows/ci.yml)
+
 A full-stack task management application built with Node.js, Express, MongoDB, and React. Both frontend and backend are deployed on Railway.
 
 ---
